@@ -1,0 +1,7 @@
+Pratical_Lab/artifacts/*
+Pratical_Lab/venv
+Pratical_Lab/logs/*
+Materials/ALL+MATERIALS+-+1/*
+*.json
+*.csv
+*.pkl

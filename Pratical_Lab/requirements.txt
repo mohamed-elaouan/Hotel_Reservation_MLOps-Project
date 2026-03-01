@@ -1,0 +1,13 @@
+pandas 
+numpy 
+google-cloud-storage
+scikit-learn
+matplotlib
+seaborn
+pyyaml 
+imbalanced-learn
+statsmodels
+scipy
+xgboost 
+lightgbm
+mlflow # * experiment tracking
