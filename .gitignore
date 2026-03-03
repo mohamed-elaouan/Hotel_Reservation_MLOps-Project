@@ -1,8 +1,10 @@
-Pratical_Lab/artifacts/*
-Pratical_Lab/venv
-Pratical_Lab/logs/*
+artifacts/*
+venv
+logs/*
 Materials/ALL+MATERIALS+-+1/*
+Materials
 *.json
 *.csv
 *.pkl
-Pratical_Lab/mlruns/*
+mlruns/*
+learningprojects-486111-b871d97b19df.json

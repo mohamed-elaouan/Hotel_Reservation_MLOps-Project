@@ -1,7 +1,0 @@
-artifact_location: file:///mnt/c/Users/think/Desktop/MLOps Bootcamp/Hotel_Reservation_Project/Pratical_Lab/mlruns/955911840288461379
-creation_time: 1772402000977
-experiment_id: '955911840288461379'
-last_update_time: 1772402000977
-lifecycle_stage: active
-name: Hotel_res_Fraud_LGBM_Experiment
-workspace: default
