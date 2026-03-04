@@ -3,7 +3,7 @@ pipeline {
     environment {
         VENV_DIR = 'venv'
         // below is the Project ID of the GCP project that we will be using for this project, you can change it to your own project ID if you want to test the pipeline on your own GCP project
-        GCP_PROJECT = '    learningprojects-486111'
+        GCP_PROJECT = 'learningprojects-486111'
         GCLOUD_PATH = '/var/jenkins_home/google-cloud-sdk/bin'
     }
 
@@ -36,7 +36,7 @@ pipeline {
                     script {
                         echo 'Building and pushing our Docker image to GCR ..........'
                         sh '''
-                        export PATH =$PATH:${GCLOUD_PATH}
+                        export PATH=$PATH:${GCLOUD_PATH}
 
                         gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
 
