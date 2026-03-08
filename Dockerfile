@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 # * [for the application] libgomp1 : it requirement for LightGBM dependency 
-RUN apt-get update && apt_get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libgomp1 \  
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
