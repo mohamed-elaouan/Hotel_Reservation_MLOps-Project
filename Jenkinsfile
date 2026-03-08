@@ -44,9 +44,9 @@ pipeline {
 
                         gcloud auth configure-docker --quiet
 
-                        docker build -t gcr.io/${GCP_PROJECT}/Hotel_Reservation:latest .
+                        docker build -t gcr.io/${GCP_PROJECT}/hotel_reservation:latest .
 
-                        docker push gcr.io/${GCP_PROJECT}/Hotel_Reservation:latest
+                        docker push gcr.io/${GCP_PROJECT}/hotel_reservation:latest
                         '''
                     }
                 }
