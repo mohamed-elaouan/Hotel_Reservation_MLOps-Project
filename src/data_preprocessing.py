@@ -61,7 +61,7 @@ class DataProcessor:
             return df
         except Exception as e:
             logger.error(f"Error in data preprocessing: {e}")
-            raise CustomException(f"Error during preprocessing , {e}")
+            raise CustomException(f"Error during preprocessing ",e)
 
     def balance_data(self, df):
         try:
@@ -82,7 +82,7 @@ class DataProcessor:
             return balanced_df
         except Exception as e:
             logger.error(f"Error in balancing data step: {e}")
-            raise CustomException(f"Error during data balancing , {e}")
+            raise CustomException(f"Error during data balancing ",e)
 
     def feature_selection(self, df):
         try:
@@ -112,7 +112,7 @@ class DataProcessor:
             return top_features_df
         except Exception as e:
             logger.error(f"Error in feature selection step: {e}")
-            raise CustomException(f"Error during feature selection , {e}")
+            raise CustomException(f"Error during feature selection ", e)
 
     def save_data(self, df, file_path):
         try:
@@ -120,7 +120,7 @@ class DataProcessor:
             logger.info(f"Data saved successfully at {file_path}")
         except Exception as e:
             logger.error(f"Error in saving data: {e}")
-            raise CustomException(f"Error during saving data , {e}")
+            raise CustomException(f"Error during saving data ",e)
 
     def preprocess(self):
         try:
@@ -142,7 +142,7 @@ class DataProcessor:
             logger.info("Data preprocessing completed successfully.")
         except Exception as e:
             logger.error(f"Error in preprocessing pipeline: {e}")
-            raise CustomException(f"Error during preprocessing pipeline , {e}")
+            raise CustomException(f"Error during preprocessing pipeline ",e)
 
 if __name__ == "__main__":
     data_processor = DataProcessor(
