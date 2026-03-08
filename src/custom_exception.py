@@ -12,7 +12,7 @@ class CustomException(Exception):
 
     @staticmethod
     def get_detailed_error_message(error_message: str, error_detail: sys):
-        _, _, exc_tb = error_detail.exc_info()
+        _, _, exc_tb = sys.exc_info()#error_detail.exc_info()
         line_number = exc_tb.tb_lineno
         file_name = exc_tb.tb_frame.f_code.co_filename
         return f"Error in {file_name} , line {line_number} : {error_message}"

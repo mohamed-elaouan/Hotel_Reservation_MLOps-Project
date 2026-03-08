@@ -35,3 +35,7 @@ in this stad ( i build the MLOps project locally) => to migrate it into the clou
   + Artifact Registry API
   + Cloud Ressource Manager API
 + add role to IAM (for the project_API/name)  => add "owner role"
+  i faced an error in my code : 
+    1. i changed the name of the image in GCR &&  run => sudo chmod 666 /var/run/docker.sock
+    2. sudo usermod -aG docker jenkins => ( depend on image / container name)
+       sudo systemctl restart jenkins

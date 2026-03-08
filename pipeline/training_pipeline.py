@@ -22,6 +22,8 @@ if __name__ == "__main__":
 
     # Model Training
     trainer = ModelTraining(
-        PROCESSED_TRAIN_FILE_PATH, PROCESSED_TEST_FILE_PATH, MODEL_OUTPUT_PATH
+        PROCESSED_TRAIN_FILE_PATH,
+        PROCESSED_TEST_FILE_PATH
+        , MODEL_OUTPUT_PATH
     )
     trainer.run()

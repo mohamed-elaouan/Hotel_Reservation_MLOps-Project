@@ -15,7 +15,8 @@ import mlflow
 import mlflow.sklearn
 
 # *Force MLflow to use local folder storage
-mlflow.set_tracking_uri("file:./mlruns")
+# mlflow.set_tracking_uri("file:./mlruns")
+mlflow.set_tracking_uri("sqlite:///mlflow.db")
 
 # Set experiment explicitly
 mlflow.set_experiment("Hotel_res_Fraud_LGBM_Experiment")
