@@ -65,15 +65,15 @@ pipeline {
 
                         gcloud config set project ${GCP_PROJECT}
 
-                        gcloud run deploy hotel_reservation:latest \
+                        gcloud run deploy hotel-reservation \
                         --image gcr.io/${GCP_PROJECT}/hotel_reservation:latest \
-                        --platform=managed \
-                        --region=us-central1 \
-                        --allow-unauthenticated 
+                        --platform managed \
+                        --region us-central1 \
+                        --allow-unauthenticated
                         '''
                     }
                 }
             }
-        }
+}
     }
 }
