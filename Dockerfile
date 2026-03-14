@@ -1,26 +1,18 @@
-FROM python:slim
+FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
 WORKDIR /app
-# * [for the application] libgomp1 : it requirement for LightGBM dependency 
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgomp1 \  
-    && apt-get clean \
+    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY . .
 
 RUN pip install --no-cache-dir -e .
 
-#  RUN python pipeline/training_pipeline.py
+EXPOSE 5000
 
-
-CMD ["python", "pipeline/training_pipeline.py"]
-
-# ? Expose the port that Flask will run on
-EXPOSE 5000 
-
-# Command to run the app
-RUN ["python", "application.py"]
+CMD ["python", "application.py"]
