@@ -1,41 +1,88 @@
-# Hotel_Reservation_MLOps-Project
+<div align="center">
+  <img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/128/000000/external-hotel-hotel-services-and-facilities-flatart-icons-flat-flatarticons-1.png" alt="Hotel Logo" width="80" />
+  <h1>Hotel Reservation Cancellation Predictor</h1>
+  <h3>End-to-End MLOps Pipeline & Production Deployment</h3>
 
-in this stad ( i build the MLOps project locally) => to migrate it into the cloud GCP with CI/CD (with Jenkins)
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/MLflow-Tracking-0194E2?style=for-the-badge&logo=mlflow&logoColor=white" alt="MLflow" />
+    <img src="https://img.shields.io/badge/GCP-Cloud_Run-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" alt="GCP" />
+    <img src="https://img.shields.io/badge/Jenkins-CI%2FCD-D24939?style=for-the-badge&logo=jenkins&logoColor=white" alt="Jenkins" />
+    <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  </p>
+</div>
 
-- download Jenkins Image with Docker ( custom_Jenkins with Dockerfile )
-  and Execute `docker build -t jenkins-dind .`
-- then if want to execute the docker image : """docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --name jenkins jenkins-dind"""
-  - i named the container `jenkins`
-  - for obtain the password make a command `docker logs jenkins` => Jenkins -> represent the name of the container
-  - for rerun it with just this command `docker run jenkins` => instead the jenkins , we can put container_name / id
-    > for download Google cloud cli
-  - execute the bach command of the jenkins : `docker exec -u root -it jenkins bash` ( after this `docker restart jenkins`)
-    ,we'll be enter into the root the jenkins container envirement
-  - download Google-Cloud-Cli :
-    '''
-    apt-get update
-    apt-get install -y curl ca-certificates gnupg
+---
 
-        curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | \
-        gpg --dearmor -o /usr/share/keyrings/google-cloud.gpg
+## 📈 Dashboard Preview
+![Application Dashboard](./docs/assets/dashboard_mockup.png)
+*Professional UI for real-time reservation risk assessment.*
 
-        echo "deb [signed-by=/usr/share/keyrings/google-cloud.gpg] https://packages.cloud.google.com/apt cloud-sdk main" \
-        > /etc/apt/sources.list.d/google-cloud-sdk.list
+---
 
-        apt-get update
-        apt-get install -y google-cloud-cli
-        '''
+## 🏨 Business Value & Impact
+Cancellations represent a major revenue leakage for the hospitality industry. This project provides a **predictive solution** to:
+- **Minimize Revenue Loss**: Identify high-risk bookings early to optimize overbooking strategies.
+- **Optimize Operations**: Better staff and resource allocation based on actual expected occupancy.
+- **Dynamic Pricing**: Enable targeted marketing or flexible pricing for high-probability cancellations.
 
-        then `gcloud --version`=> for checking if installed
+---
 
-  - then `groupadd docker` ( could showed you an error )
-  - `usermod -aG docker jenkins` then `usermod -aG root jenkins`
- + enable the services on GCP 
-  + Cloud Container Register API
-  + Artifact Registry API
-  + Cloud Ressource Manager API
-+ add role to IAM (for the project_API/name)  => add "owner role"
-  i faced an error in my code : 
-    1. i changed the name of the image in GCR &&  run => sudo chmod 666 /var/run/docker.sock
-    2. sudo usermod -aG docker jenkins => ( depend on image / container name)
-       sudo systemctl restart jenkins
+## ⚙️ MLOps Lifecycle Architecture
+The system follows a robust industry-standard lifecycle from raw data to a scalable cloud endpoint:
+
+```mermaid
+graph LR
+    A[(GCS Bucket)] -- Raw Data --> B[Ingestion Pipeline]
+    B --> C[Preprocessing & SMOTE]
+    C --> D[LightGBM Training]
+    D --> E{MLflow UI}
+    E -- Model Artifact --> F[Flask API]
+    F -- Dockerized --> G[Jenkins CI/CD]
+    G --> H[Google Cloud Run]
+```
+
+---
+
+## 🛠️ Essential Technical Features
+- **Experiment Tracking**: Full lifecycle management using **MLflow** for hyperparameter tuning (`RandomizedSearchCV`) and artifact versioning.
+- **Imbalanced Data Handling**: Implementation of **SMOTE** to handle class imbalance in reservation cancellations.
+- **Scalable Deployment**: Fully containerized environment with **Docker**, orchestrated by a **Jenkins** CI/CD pipeline.
+- **Cloud Infrastructure**: Serverless deployment on **Google Cloud Run** for high availability and auto-scaling.
+
+---
+
+## 📂 Project Structure
+```text
+├── application.py          # Flask entry point
+├── pipeline/               # Orchestration scripts
+├── src/                    # Core modular logic (Ingestion, Preprocessing, Training)
+├── config/                 # YAML & Python configurations
+├── templates/ & static/    # Modern UI resources
+└── Dockerfile & Jenkinsfile # Infrastructure as Code
+```
+
+---
+
+## 🚀 Essential Setup
+
+### 1. Environment Preparation
+```bash
+python -m venv venv
+# Activate: source venv/bin/activate (Unix) or venv\Scripts\activate (Windows)
+pip install -e .
+```
+
+### 2. Execution Flow
+- **Train Model**: `python pipeline/training_pipeline.py`
+- **Track Experiments**: `mlflow ui` (Open http://localhost:5000)
+- **Local Serve**: `python application.py` (Access http://localhost:8080)
+
+---
+
+## 👨‍💻 Author
+**Mohamed EL Aouan**  
+*Data Scientist & MLOps Architect*
+
+---
+*Developed as a professional portfolio demonstration of production-grade Machine Learning Engineering.*
